@@ -10,7 +10,33 @@ public class Course {
     private String courseID;
     private int duration;
     
-    
+    public Course(){
+        this.teacher="";
+        this.coursename="";
+        this.courseID="";
+        this.duration=0;
+    }
+    public Course(String n, String tn, String ts, String i, int d){
+        if(this.courseNameCheck() && this.courseDurationCheck() && this.courseIDCheck()){
+        this.teacher=tn+", "+ts;;
+        this.coursename=n;
+        this.courseID=i;
+        this.duration=d;
+        }else{
+           System.err.println("Los valores pasado por parametros son inválidos, devolviendo a valores por defecto");
+            
+        this.teacher="";
+        this.coursename="";
+        this.courseID="";
+        this.duration=0;
+        }
+    }
+    public Course(Course other){
+     this.teacher= other.teacher;
+     this.coursename=other.coursename;
+     this.courseID=other.courseID;
+     this.duration=other.duration;
+    }
     public boolean courseNameCheck(String n){
         if(n.length()>=4){
             return true;
@@ -76,6 +102,20 @@ public class Course {
     }
     public String toString(){
         return "The course "+coursename+" with the ID "+courseID+" has "+duration+" hours of duration and "+ teacher+" is its teacher";
+    }
+    public void copyCourseName(Course other){
+        this.coursename=other.coursename;
+    }
+    
+    public void copyTeacherName(Course other){
+        this.teacher=other.teacher;
+    }
+    
+    public void copyCourseID(Course other){
+        this.courseID=other.courseID;   
+    }
+    public void copyDuration(Course other){
+        this.duration=other.duration;
     }
     public Course clone(){
        Course clon=new Course();
