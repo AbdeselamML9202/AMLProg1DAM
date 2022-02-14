@@ -1,3 +1,4 @@
+
 package GitHubCourse;
 
 /**
@@ -17,7 +18,7 @@ public class Course {
         this.duration=0;
     }
     public Course(String n, String tn, String ts, String i, int d){
-        if(this.courseNameCheck() && this.courseDurationCheck() && this.courseIDCheck()){
+        if(courseNameCheck(n) && courseDurationCheck(d) && courseIDCheck(i)){
         this.teacher=tn+", "+ts;;
         this.coursename=n;
         this.courseID=i;
