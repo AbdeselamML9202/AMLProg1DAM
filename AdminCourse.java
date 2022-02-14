@@ -17,10 +17,10 @@ public class AdminCourse extends Course{
         this.setDuration(0);
     }
     public AdminCourse(AdminCourse other){
-        this.setCourseName("");
-        this.setTeacherName("", "");
-        this.setCourseID("");
-        this.setDuration(0);
+        this.copyCourseName(other);
+        this.copyTeacherName(other);
+        this.copyCourseID(other);
+        this.copyDuration(other);
     }
     public AdminCourse(String n, String tn, String ts, String i, String d){
         int du= Integer.parseInt(d);
