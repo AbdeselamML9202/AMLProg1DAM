@@ -2,39 +2,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Fourth_Task.Github;
+package GitHubCourse;
 
 /**
  *
  * @author ismael
  */
-public class ITCourse extends OnlineCourse{
+public class ITCourse extends Course{
     private String specializaton;
     
     public ITCourse(){
-        this.setName("");
+        this.setCourseName("");
         this.setDuration(0);
-        this.setTeacher("");
-        this.setID("");
+        this.setTeacherName("","");
+        this.setCourseID("");
         specializaton="";
     }
 
-    public ITCourse(String specialization, String name, String id, String teacher){
+    public ITCourse(String specialization, String name,String surname, String id, String teacher){
         if(this.typeSpecialization(specialization)){
             this.specializaton=specialization;
         }
         
-        this.setName(name);
-        this.setTeacher(teacher);
-        this.setID(id);
+        this.setCourseName(name);
+        this.setTeacherName(teacher, "");
+        this.setCourseID(id);
         
         
     }
     
     public ITCourse (ITCourse copy){
-        this.setName(copy.getName());
-        this.setTeacher(copy.getTeacher());
-        this.setID(copy.getID());
+        this.setCourseName(copy.getCourseName());
+        this.setTeacherName(copy.getTeacher(),"");
+        this.setCourseID(copy.getCourseID());
         this.specializaton=copy.specializaton;
     }
     
@@ -70,9 +70,9 @@ public class ITCourse extends OnlineCourse{
     
     
     public boolean equals(ITCourse compare){
-        if(this.getName()==compare.getName()){
+        if(this.getCourseName()==compare.getCourseName()){
             if(this.getTeacher()==compare.getTeacher()){
-                if(this.getID()==compare.getID()){
+                if(this.getCourseID()==compare.getCourseID()){
                     if(this.specializaton==compare.specializaton){
                         if(this.getDuration()==compare.getDuration()){
                             return true;
@@ -99,11 +99,10 @@ public class ITCourse extends OnlineCourse{
     }
     
     public String toString(){
-        return this.getName()+" with the id "+ this.getID()+" alumn of "+ this.getTeacher()+" study a course of "+this.specializaton
+        return this.getCourseName()+" with the id "+ this.getCourseID()+" alumn of "+ this.getTeacher()+" study a course of "+this.specializaton
         +" with a duration "+this.getDuration();
     }
 }
-
 
 
 
